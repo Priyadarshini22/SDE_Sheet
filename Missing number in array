@@ -1,0 +1,67 @@
+// { Driver Code Starts
+// Initial template for C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+
+ // } Driver Code Ends
+// User function template for C++
+
+class Solution{
+  public:
+    int MissingNumber(vector<int>& array, int n) {
+        // Your code goes here
+      /*  unordered_map<int, int> hash;
+        long max=0;
+        for(long i=0;i<n;i++)
+        {
+            hash[array[i]]++;
+          // cout<<hash[array[i]]++;;
+            if(max<array[i])
+            {
+                max=array[i];
+            }
+        }
+        for(long i=1;i<=max;i++)
+        {
+            
+            if(hash[i]>0)
+            {
+                continue;
+            }
+            else
+            {
+                //cout<<array[i];
+                return i;
+            }
+        }*/
+        int total=n*(n+1)/2,sum=0;
+        for(int i=0;i<n-1;i++)
+        {
+            
+            sum=sum+array[i];
+        }
+        return total-sum;
+        
+    }
+};
+
+// { Driver Code Starts.
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<int> array(n - 1);
+        for (int i = 0; i < n - 1; ++i) cin >> array[i];
+        Solution obj;
+        cout << obj.MissingNumber(array, n) << "\n";
+    }
+    return 0;
+}  // } Driver Code Ends
